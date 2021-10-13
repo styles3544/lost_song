@@ -1,0 +1,225 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Ubuntu&display=swap');
+html{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height:100%;
+}
+
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
+
+nav ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li{
+    display: inline;
+    padding: 15px;
+    float: right;
+}
+
+nav ul li.logo img{
+    width: 50px;
+}
+
+nav ul li.logo, nav ul li.brand {
+    float: left;
+}
+
+.navigation {
+    min-height: 80px;
+    background-color: black;
+    /* border: 1px solid red; */
+    color: white;
+}
+
+nav {
+    min-height: 80px;
+}
+
+nav ul li.item {
+    margin-top: 1rem;
+  
+}
+
+nav ul li.item:hover{
+    cursor: pointer;
+}
+
+nav ul li.item-last{
+    margin-right: 2.5rem;
+}
+
+nav ul li.brand{
+    margin-left: 0px;
+    padding-left: 0px;
+    font-weight: bolder;
+}
+
+footer div.text{
+    /* border: 1px solid blue; */
+    width: 50%;
+    float: left;
+    box-sizing: border-box;
+    padding: 20px;
+    font-family: 'Ubuntu', sans-serif;
+
+}
+
+footer div.copyright{
+    /* border: 1px solid blue; */
+    width: 50%;
+    float: right;
+    box-sizing: border-box;
+    padding: 20px;
+    direction: rtl;
+    text-align: center;
+    font-weight: lighter;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+footer div.copyright p.copy-text {
+    position: absolute;
+    right: 4rem;
+}
+
+footer .bottom {
+    min-height: 100px;
+    /* border:2px solid red; */
+    position: absolute;
+    bottom: 0;
+    min-width: 100%;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    background-color: #Fdfcfa;
+}
+
+@media screen and (max-width:768px){
+    footer div.text{
+        /* border: 1px solid blue; */
+        width: 90%;
+        float: none;
+        box-sizing: border-box;
+        padding: 10px;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    footer div.copyright{
+        /* border: 1px solid blue; */
+        width: 90%;
+        float: none;
+        box-sizing: border-box;
+        padding: 10px;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    footer div.copyright p.copy-text {
+        text-align: center;
+        width: 90%;
+        margin-right: auto;
+        margin-left: auto;
+        position: relative;
+        right: auto;
+        left: auto;
+    }
+    
+  }
+
+.content {
+    /* border: 1px solid red; */
+    min-height: 70vh;
+    width: 95%;
+    margin-top: 1%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+    border-radius: 20px;
+}
+
+.content .image-container{
+    /* border: 1px solid violet; */
+    width: 15%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1rem;
+}
+
+@media screen and (max-width:768px){
+    .content .image-container{
+        /* border: 1px solid violet; */
+        width: 100px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 1rem;
+    }
+    
+    
+  }
+
+
+.content .image-container img{
+    width: 100%;
+    border-radius: 50%;
+}
+
+.control {
+    /* border: 2px solid black; */
+    height: 250px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2rem;
+}
+
+.control .singer, .control .song-name{
+    text-align: center;
+}
+
+.icons img{
+    width: 100%;
+}
+
+.icons {
+    display: flex;
+    align-items: center;
+    /* border: 1px solid yellow; */
+    width: 60px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.polaroid {
+    /* border: 1px solid black; */
+    height: 100%;
+   
+}
+
+.icons #myIcon{
+    cursor: pointer;
+}
+
+li a{
+    text-decoration: none;
+    color: white;
+}
