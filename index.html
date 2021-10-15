@@ -32,7 +32,9 @@
                             <h2 class="song-name" id="song-title">
                                 Click On the play icon to listen!
                             </h2>
-                            <p class="singer" id="artist-name"></p>
+                            <p class="singer" id="artist-name">
+                                
+                            </p>
                             <div class="icons">
                                 <img src="previous.png" alt="previous song" title="previous" id="myIcon-prev" onclick="previous()">
                                 <img src="play-button.png" alt="play song" title="play" id="myIcon-play" onclick="playSong()">
@@ -45,9 +47,7 @@
             <footer>
                 <div class="bottom">
                     <div class="text">
-                        <p>This website is dedicated to all who get lost in music like me!
-                            <br>
-                            All rights are reserved to their respective owners.</p>
+                        <p>This website is dedicated to all who get lost in music like me! <br> All rights are reserved to their respective owners.</p>
                     </div>
                     <div class="copyright">
                         <p class="copy-text">copyright @styles | 2021</p>
@@ -58,7 +58,7 @@
             <audio id="mySong">
                 <source src="resources/1.mp3" type="audio/mp3">
             </audio>
-
+            
 
             <script>
                 var songs = ["MIIA-Dynasty", "Can We Kiss Forever", "Play Date"];
@@ -71,30 +71,24 @@
                 var artist_name = document.getElementById("artist-name");
                 var cover = document.getElementById("cover-image");
 
-                function songDecide(i) {
-                    if (songIndex == i) {
-                        mySong.src = "resources/" + (
-                            songIndex + 1
-                        ) + ".mp3";
+                function songDecide(i){
+                    if (songIndex == i){
+                        mySong.src = "resources/"+ (songIndex+1) +".mp3";
                     }
-                    if (songIndex == i) {
-                        mySong.src = "resources/" + (
-                            songIndex + 1
-                        ) + ".mp3";
+                    if (songIndex == i){
+                        mySong.src = "resources/"+ (songIndex+1) +".mp3";
                     }
-                    if (songIndex == i) {
-                        mySong.src = "resources/" + (
-                            songIndex + 1
-                        ) + ".mp3";
+                    if (songIndex == i){
+                        mySong.src = "resources/"+ (songIndex+1) +".mp3";
                     }
                 }
 
                 var icon_play = document.getElementById("myIcon-play");
                 var icon_next = document.getElementById("myIcon-next");
-                function next() {
-                    if (songIndex > 1) {
-                        songIndex = 0;
-                    } else {
+                function next(){
+                    if (songIndex > 1){
+                        songIndex=0;
+                    } else{
                         songIndex++;
                     }
                     console.log(songIndex);
@@ -104,13 +98,13 @@
                     icon_play.title = "pause";
                     song_title.innerHTML = songs[songIndex];
                     artist_name.innerHTML = artists[songIndex];
-                    cover.src = (songIndex + 1) + ".jpg";
+                    cover.src = (songIndex+1) +".jpg";
                 }
                 var icon_prev = document.getElementById("myIcon-prev");
-                function previous() {
-                    if (songIndex < 1) {
-                        songIndex = 2;
-                    } else {
+                function previous(){
+                    if (songIndex < 1){
+                        songIndex=2;
+                    } else{
                         songIndex--;
                     }
                     console.log(songIndex);
@@ -120,7 +114,7 @@
                     icon_play.title = "pause";
                     song_title.innerHTML = songs[songIndex];
                     artist_name.innerHTML = artists[songIndex];
-                    cover.src = (songIndex + 1) + ".jpg";
+                    cover.src = (songIndex+1) +".jpg";
                 }
 
                 function playSong() {
@@ -132,9 +126,10 @@
                         mySong.pause();
                         icon_play.src = "play-button.png";
                         icon_play.title = "play";
-                    } song_title.innerHTML = songs[songIndex];
+                    }
+                    song_title.innerHTML = songs[songIndex];
                     artist_name.innerHTML = artists[songIndex];
-                    cover.src = (songIndex + 1) + ".jpg";
+                    cover.src = (songIndex+1) +".jpg";
                 }
 
                 mySong.addEventListener("ended", function () {

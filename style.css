@@ -74,7 +74,7 @@ footer div.text{
     width: 50%;
     float: left;
     box-sizing: border-box;
-    padding: 20px;
+    padding: 1rem;
     font-family: 'Ubuntu', sans-serif;
 
 }
@@ -84,7 +84,7 @@ footer div.copyright{
     width: 50%;
     float: right;
     box-sizing: border-box;
-    padding: 20px;
+    padding: 1rem;
     direction: rtl;
     text-align: center;
     font-weight: lighter;
@@ -97,7 +97,7 @@ footer div.copyright p.copy-text {
 }
 
 footer .bottom {
-    min-height: 100px;
+    min-height: 0.5rem;
     /* border:2px solid red; */
     position: absolute;
     bottom: 0;
@@ -206,7 +206,7 @@ footer .bottom {
     align-items: center;
     justify-content: center;
     /* border: 1px solid yellow; */
-    width: 60px;
+    width: 2.5rem;
     margin-left: auto;
     margin-right: auto;
 }
@@ -224,4 +224,12 @@ footer .bottom {
 li a{
     text-decoration: none;
     color: white;
+}
+
+.song-name{
+    font-size: 1.2rem;;
+}
+
+#myIcon-prev, #myIcon-next{
+    width: 80%;
 }
