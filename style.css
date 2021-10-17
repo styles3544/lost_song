@@ -108,7 +108,16 @@ footer .bottom {
     background-color: #Fdfcfa;
 }
 
+
+
 @media screen and (max-width:768px){
+    footer {
+        clear: both;
+        position: relative;
+        height: 170px;
+        margin-top: -3px;
+    }
+
     footer div.text{
         /* border: 1px solid blue; */
         width: 90%;
@@ -145,21 +154,35 @@ footer .bottom {
 
 .content {
     /* border: 1px solid red; */
-    min-height: 70vh;
-    width: 95%;
-    margin-top: 1%;
+    min-height: 60vh;
+    width: 60%;
+    margin: 1.5rem 0;
     margin-left: auto;
     margin-right: auto;
     padding: 0;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
     border-radius: 20px;
 }
 
+@media screen and (max-width:768px){
+    .content {
+        /* border: 1px solid violet; */
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 1.5rem 0;
+    }
+    
+    
+  }
+
 .content .image-container{
     /* border: 1px solid violet; */
-    width: 15%;
+    width: 10rem;
     margin-left: auto;
     margin-right: auto;
     margin-top: 1rem;
@@ -181,15 +204,17 @@ footer .bottom {
 .content .image-container img{
     width: 100%;
     border-radius: 50%;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
 }
 
 .control {
     /* border: 2px solid black; */
     height: 250px;
-    width: 90%;
+    width: 99%;
     margin-left: auto;
     margin-right: auto;
     margin-top: 2rem;
+
 }
 
 .control .singer, .control .song-name{
@@ -217,7 +242,7 @@ footer .bottom {
    
 }
 
-.icons #myIcon{
+.icons .myIcon{
     cursor: pointer;
 }
 
@@ -232,4 +257,25 @@ li a{
 
 #myIcon-prev, #myIcon-next{
     width: 80%;
+}
+
+.progressbar {
+    /* border: solid 1px black; */
+    opacity: 0;
+    transition: opacity 1s ease-in;
+    height: 5px;
+    width: 80%;
+    margin-top: 10px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    border-radius: 5px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.progressed {
+    height: 5px;
+    width: 0%;
+    background-color: black;
+    border-radius: 5px;
 }

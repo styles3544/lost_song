@@ -30,18 +30,24 @@
                         </div>
                         <div class="control">
                             <h2 class="song-name" id="song-title">
-                                Click On the play icon to listen!
+                                Click to play your favourites!
                             </h2>
                             <p class="singer" id="artist-name">
-                                
+                                by styles
                             </p>
                             <div class="icons">
-                                <img src="previous.png" alt="previous song" title="previous" id="myIcon-prev" onclick="previous()">
-                                <img src="play-button.png" alt="play song" title="play" id="myIcon-play" onclick="playSong()">
-                                <img src="next.png" alt="next song" title="next" id="myIcon-next" onclick="next()">
+                                <img src="previous.png" alt="previous song" title="previous" id="myIcon-prev" class="myIcon" onclick="previous()">
+                                <img src="play-button.png" alt="play song" title="play" id="myIcon-play" class="myIcon" onclick="playSong()">
+                                <img src="next.png" alt="next song" title="next" id="myIcon-next" class="myIcon" onclick="next()">
+                            </div>
+                            <div class="progressbar" id="_progressbar">
+                                <div class="progressed" id="progressed">
+                                    
+                                </div>
                             </div>
                         </div>
                     </div>
+                    
                 </div>
             </main>
             <footer>
@@ -61,8 +67,8 @@
             
 
             <script>
-                var songs = ["MIIA-Dynasty", "Can We Kiss Forever", "Play Date"];
-                var artists = ["MIIA", "KINA", "Melanie Martinez"];
+                var songs = ["MIIA-Dynasty", "Can We Kiss Forever", "Play Date", "Would Anyone Care", "Legends Never Die", "Phoenix"];
+                var artists = ["MIIA", "KINA", "Melanie Martinez", "Citizen Soldier", "Against The Current", "Chrissy"];
                 let songIndex = 0;
                 var i;
 
@@ -70,6 +76,8 @@
                 var song_title = document.getElementById("song-title");
                 var artist_name = document.getElementById("artist-name");
                 var cover = document.getElementById("cover-image");
+                var progress = document.getElementById("progressed");
+                var _progress = document.getElementById("_progressbar");
 
                 function songDecide(i){
                     if (songIndex == i){
@@ -86,7 +94,7 @@
                 var icon_play = document.getElementById("myIcon-play");
                 var icon_next = document.getElementById("myIcon-next");
                 function next(){
-                    if (songIndex > 1){
+                    if (songIndex > (songs.length-2)){
                         songIndex=0;
                     } else{
                         songIndex++;
@@ -103,7 +111,7 @@
                 var icon_prev = document.getElementById("myIcon-prev");
                 function previous(){
                     if (songIndex < 1){
-                        songIndex=2;
+                        songIndex=(songs.length-1);
                     } else{
                         songIndex--;
                     }
@@ -122,10 +130,12 @@
                         mySong.play();
                         icon_play.src = "pause.png";
                         icon_play.title = "pause";
+                        _progress.style.opacity = 1;
                     } else {
                         mySong.pause();
                         icon_play.src = "play-button.png";
                         icon_play.title = "play";
+                        _progress.style.opacity = 0;
                     }
                     song_title.innerHTML = songs[songIndex];
                     artist_name.innerHTML = artists[songIndex];
@@ -137,6 +147,11 @@
                     console.log("song ended");
                     window.alert("Music has stopped playing. Thank you for listening on the website!")
                     icon_play.src = "play-button.png";
+                });
+
+                mySong.addEventListener('timeupdate', (event) => {
+                    console.log(Math.floor(mySong.currentTime*100/mySong.duration));
+                    progress.style.width = Math.floor(mySong.currentTime*100/mySong.duration)+"%";
                 });
             </script>
 
