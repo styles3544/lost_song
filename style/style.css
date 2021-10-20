@@ -265,7 +265,7 @@ li a{
     transition: opacity 1s ease-in;
     height: 5px;
     width: 90%;
-    margin-top: 10px;
+   
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     border-radius: 5px;
@@ -278,4 +278,11 @@ li a{
     width: 0%;
     background-color: black;
     border-radius: 5px;
+}
+
+.progress-container{
+    margin-top: 15px;
+    width: 10rem;
+    margin-left: auto;
+    margin-right: auto;
 }

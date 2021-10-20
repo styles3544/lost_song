@@ -5,14 +5,14 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Spotify | One spot for your music</title>
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="style/style.css">
     </head>
     <body>
         <div class="container">
             <div class="navigation">
                 <nav>
                     <ul>
-                        <li class="logo"><img src="logo.png" alt="spotify logo"></li>
+                        <li class="logo"><img src="./logos/logo.png" alt="spotify logo"></li>
                         <li class="brand item">Spotify</li>
                         <li class="item item-last">
                             <a href="https://github.com/styles3544">
@@ -30,30 +30,33 @@
                         </div>
                         <div class="control">
                             <h2 class="song-name" id="song-title">
-                                Click to play your favourites!
+                                Click to play someone's favourites!
                             </h2>
                             <p class="singer" id="artist-name">
                                 by styles
                             </p>
                             <div class="icons">
-                                <img src="previous.png" alt="previous song" title="previous" id="myIcon-prev" class="myIcon" onclick="previous()">
-                                <img src="play-button.png" alt="play song" title="play" id="myIcon-play" class="myIcon" onclick="playSong()">
-                                <img src="next.png" alt="next song" title="next" id="myIcon-next" class="myIcon" onclick="next()">
+                                <img src="./logos/previous.png" alt="previous song" title="previous" id="myIcon-prev" class="myIcon" onclick="previous()">
+                                <img src="./logos/play-button.png" alt="play song" title="play" id="myIcon-play" class="myIcon" onclick="playSong()">
+                                <img src="./logos/next.png" alt="next song" title="next" id="myIcon-next" class="myIcon" onclick="next()">
                             </div>
+                            <div class="progress-container">
                             <div class="progressbar" id="_progressbar">
-                                <div class="progressed" id="progressed">
-                                    
-                                </div>
+                                <div class="progressed" id="progressed"></div>
                             </div>
                         </div>
+                        </div>
+
                     </div>
-                    
+
                 </div>
             </main>
             <footer>
                 <div class="bottom">
                     <div class="text">
-                        <p>This website is dedicated to all who get lost in music like me! <br> All rights are reserved to their respective owners.</p>
+                        <p>This website is dedicated to all who get lost in music like me!
+                            <br>
+                            All rights are reserved to their respective owners.</p>
                     </div>
                     <div class="copyright">
                         <p class="copy-text">copyright @styles | 2021</p>
@@ -64,11 +67,25 @@
             <audio id="mySong">
                 <source src="resources/1.mp3" type="audio/mp3">
             </audio>
-            
+
 
             <script>
-                var songs = ["MIIA-Dynasty", "Can We Kiss Forever", "Play Date", "Would Anyone Care", "Legends Never Die", "Phoenix"];
-                var artists = ["MIIA", "KINA", "Melanie Martinez", "Citizen Soldier", "Against The Current", "Chrissy"];
+                var songs = [
+                    "MIIA-Dynasty",
+                    "Can We Kiss Forever",
+                    "Play Date",
+                    "Would Anyone Care",
+                    "Legends Never Die",
+                    "Phoenix"
+                ];
+                var artists = [
+                    "MIIA",
+                    "KINA",
+                    "Melanie Martinez",
+                    "Citizen Soldier",
+                    "Against The Current",
+                    "Chrissy"
+                ];
                 let songIndex = 0;
                 var i;
 
@@ -79,82 +96,84 @@
                 var progress = document.getElementById("progressed");
                 var _progress = document.getElementById("_progressbar");
 
-                function songDecide(i){
-                    if (songIndex == i){
-                        mySong.src = "resources/"+ (songIndex+1) +".mp3";
-                    }
-                    if (songIndex == i){
-                        mySong.src = "resources/"+ (songIndex+1) +".mp3";
-                    }
-                    if (songIndex == i){
-                        mySong.src = "resources/"+ (songIndex+1) +".mp3";
-                    }
+
+                function songDecide() {
+                    
+                        mySong.src = "resources/" + (
+                            songIndex + 1
+                        ) + ".mp3";
                 }
+
 
                 var icon_play = document.getElementById("myIcon-play");
                 var icon_next = document.getElementById("myIcon-next");
-                function next(){
-                    if (songIndex > (songs.length-2)){
-                        songIndex=0;
-                    } else{
+                function next() {
+                    if (songIndex > (songs.length - 2)) {
+                        songIndex = 0;
+                    } else {
                         songIndex++;
                     }
                     console.log(songIndex);
-                    songDecide(songIndex);
+                    songDecide();
                     mySong.play();
-                    icon_play.src = "pause.png";
+                    icon_play.src = "./logos/pause.png";
                     icon_play.title = "pause";
                     song_title.innerHTML = songs[songIndex];
                     artist_name.innerHTML = artists[songIndex];
-                    cover.src = (songIndex+1) +".jpg";
+                    cover.src ="./covers/" + (songIndex + 1) + ".jpg";
+                    if(_progress.style.opacity == 0){
+                        _progress.style.opacity = 1;
+                    }
+
                 }
                 var icon_prev = document.getElementById("myIcon-prev");
-                function previous(){
-                    if (songIndex < 1){
-                        songIndex=(songs.length-1);
-                    } else{
+                function previous() {
+                    if (songIndex < 1) {
+                        songIndex = (songs.length - 1);
+                    } else {
                         songIndex--;
                     }
                     console.log(songIndex);
                     songDecide(songIndex);
                     mySong.play();
-                    icon_play.src = "pause.png";
+                    icon_play.src = "./logos/pause.png";
                     icon_play.title = "pause";
                     song_title.innerHTML = songs[songIndex];
                     artist_name.innerHTML = artists[songIndex];
-                    cover.src = (songIndex+1) +".jpg";
+                    cover.src ="./covers/" + (songIndex + 1) + ".jpg";
+                    if(_progress.style.opacity == 0){
+                        _progress.style.opacity = 1;
+                    }
                 }
 
                 function playSong() {
                     if (mySong.paused) {
                         mySong.play();
-                        icon_play.src = "pause.png";
+                        icon_play.src = "./logos/pause.png";
                         icon_play.title = "pause";
                         _progress.style.opacity = 1;
                     } else {
                         mySong.pause();
-                        icon_play.src = "play-button.png";
+                        icon_play.src = "./logos/play-button.png";
                         icon_play.title = "play";
                         _progress.style.opacity = 0;
-                    }
-                    song_title.innerHTML = songs[songIndex];
+                    } song_title.innerHTML = songs[songIndex];
                     artist_name.innerHTML = artists[songIndex];
-                    cover.src = (songIndex+1) +".jpg";
+                    cover.src ="./covers/" + (songIndex + 1) + ".jpg";
                 }
 
                 mySong.addEventListener("ended", function () {
                     mySong.currentTime = 0;
-                    console.log("song ended");
-                    window.alert("Music has stopped playing. Thank you for listening on the website!")
-                    icon_play.src = "play-button.png";
+                    icon_play.src = "./logos/play-button.png";
+                    next()
                 });
 
                 mySong.addEventListener('timeupdate', (event) => {
-                    console.log(Math.floor(mySong.currentTime*100/mySong.duration));
-                    progress.style.width = Math.floor(mySong.currentTime*100/mySong.duration)+"%";
+                    console.log(Math.floor(mySong.currentTime * 100 / mySong.duration));
+                    progress.style.width = Math.floor(mySong.currentTime * 100 / mySong.duration) + "%";
                 });
             </script>
 
         </div>
     </body>
-</html></body></html>
+</html>
